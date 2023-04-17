@@ -66,9 +66,78 @@
    </header> 
 
   <main class="container mt-3">
-    <h1> APP UI Goes Here</h1>
-    <input type="text" placeholder="Enter a Message" id="message"/>
-    <button class="btn btn-primary" id="btnSubmit">Display Message</button>
+    <div class="row">
+        <div class="col-sm-6">
+            <!-- dropdown button -->
+            <div class="dropdown my-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Pick a Location
+                </button>
+                <ul class="dropdown-menu" id="eventDropDown" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">All</a></li>
+                  <!-- event cities go here -->
+                </ul>
+              </div>
+              <!-- stat box -->
+              <table class="table table-striped border rounded-2 shadow">
+                <thead>
+                    <tr>
+                        <th colspan="2">Stats For<span id="location"> All Events</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Total Attendance</td>
+                    <td id="total">100</td>
+                </tr>
+                <tr>
+                    <td>Average Attendance</td>
+                    <td id="average">100</td>
+                </tr>
+                <tr>
+                    <td>Most Attendance</td>
+                    <td id="most">100</td>
+                </tr>
+                <tr>
+                    <td>Least Attendance</td>
+                    <td id="least">100</td>
+                </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="col-sm-6 order-first order-first order-sm-last">
+            <!-- logo -->
+            <img src="/img/APPNAMELogo.svg" class="img-fluid p-3" />
+        </div>
+    </div>
+    <div>
+        <!-- button to add events -->
+        <button class="btn btn-secondary my-3">Add Data</button>
+        <!-- event table -->
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Event Name</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Attendance</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="eventTable">
+                    <!-- event data -->
+                    <tr>
+                        <td>ComicCon</td>
+                        <td>New York</td>
+                        <td>New York</td>
+                        <td>25000</td>
+                        <td>10/21/2022</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
   </main>
 
     <footer class="py-3">
@@ -96,7 +165,8 @@
     <!-- APP JS -->
     <script src="/js/site.js"></script>
     <script>
-        document.getElementById('btnSubmit').addEventListener('click', displayMessage);
+        
+    
     </script>
 </body>
 
