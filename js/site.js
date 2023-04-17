@@ -78,7 +78,7 @@ function buildDropDown() {
     // you can also write it like: let cityNames = currentEvents.map(event => event.city);
 
     let citiesSet = new Set(cityNames); //Set objects are a collection of values
-    let distinctCities = [...citiesSet]; // converts to array with the []: ['Charlotte', 'San Diego', 'New York']
+    let distinctCities = [...citiesSet]; // converts to array with the []: ['Charlotte', 'San Diego', 'New York'] // ...spread operator
 
     const dropdownTemplate = document.getElementById('dropdownItemTemplate');
 
@@ -105,5 +105,30 @@ function buildDropDown() {
             
         //append to dropdown menu
         dropdownMenu.appendChild(dropdownItemNode);
+    }
+
+    displayEventData(currentEvents);
+}
+
+function displayEventData(currentEvents) {
+       // get the table
+    const eventTable = document.getElementById('eventTable');
+    const template = document.getElementById('tableRowTemplate');
+
+    eventTable.innerHTML = '';
+
+    for (let i = 0; i < currentEvents.length; i++) {
+        let event = currentEvents[i];
+
+        let tableRow = document.importNode(template.content, true);
+
+        tableRow.querySelector('[data-id="event"]').textContent = event.event;
+        tableRow.querySelector('[data-id="city"]').textContent = event.city;
+        tableRow.querySelector('[data-id="state"]').textContent = event.state;
+        tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance;
+        tableRow.querySelector('[data-id="date"]').textContent = event.date;
+
+        //display results
+        eventTable.appendChild(tableRow);
     }
 }
