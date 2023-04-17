@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>APP NAME: A Coding Challenge by Khala Wright</title>
+
+<!-- Bootstrap CSS - stylesheets always go in head tag-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<!-- DEVICON -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+<!-- BOOTSTRAP icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/css/site.css"/>
+<!-- Prism CSS -->
+<link rel="stylesheet" href="/css/prism.css"/>
+
+</head>
+
+<body>
+   <header>
+       <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+           <div class="container">
+               <a class="navbar-brand" href="/index.html">
+                <img src="/img/kw-mark.png" height="30"/>
+                APP NAME
+                </a>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                   data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                   aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                       <li class="nav-item">
+                           <a class="nav-link" href="/index.html">Home</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link" href="/app.html">The App</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link" href="https://github.com/khalathecoder" target="_blank">The Repo</a>
+                       </li>
+                       <li class="nav-item">
+                        <a class="nav-link" href="https://khalawright-portfolio.netlify.app" target="_blank">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>  
+                        <!--!!!!!!!!!! To do, change link!!!!!!!! -->
+                    </li>
+                   </ul>
+               </div>
+           </div>
+       </nav>
+   </header> 
+
+    <main class="container mt-3">
+        <h1 class="border-bottom border-2 border-dark">The Code</h1>
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <pre class="line-numbers">
+                    <code class="language-js">
+function displayMessage() {
+    let msg = document.getElementById('message').value;
+        //alert(msg);
+    
+        Swal.fire(
+            {
+                backdrop: false,
+                title: 'App Name',
+                text: msg
+            }
+        );
+    }
+                    </code>
+                </pre>
+            </div>
+            <div class="col-lg-4 col-12">
+                <p> The code is structured in one function.</p>
+                <h5>displayMessage</h5>
+                <p>Prints out the message</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-3">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 align-items-center text-center">
+                <div class="col">
+                <img src="/img/kw-white-initials.png" height="50"/>
+                </div>
+                <div class="col text-light text-md-end">
+                <a href="https://linkedin.com" class="text-light" target="blank"><i class="socialicons bi bi-linkedin p-2"></i></a>
+                <a href="https://github.com" class="text-light"target="blank"><i class="socialicons bi bi-github p-2"></i></a>
+                <a href="https://twitter.com" class="text-light"target="blank"><i class="socialicons bi bi-twitter p-2"></i></a>
+                </div>
+                <div class="col text-light order-md-first text-md-start"> &copy; 2023 Khala Wright</div>
+            </div>
+        </div>
+    </footer>
+
+<!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"crossorigin="anonymous"></script>
+
+    <script src="/js/prism.js"></script>
+    <script>
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true
+        })
+    </script>
+</body>
+</html>
