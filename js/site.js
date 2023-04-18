@@ -101,7 +101,7 @@ function buildDropDown() {
             let dropdownItemNode = document.importNode(dropdownTemplate.content, true);
             let dropdownItemLink = dropdownItemNode.querySelector('a');
             dropdownItemLink.innerText = cityName;
-            dropdownItemLink.setAttribute('datastring', cityName);
+            dropdownItemLink.setAttribute('data-string', cityName);
             
         //append to dropdown menu
         dropdownMenu.appendChild(dropdownItemNode);
@@ -195,4 +195,29 @@ function getEventData() {
     // }
 
     return currentEvents;
+}
+
+function viewFilteredEvents(dropdownItem) {
+    let cityName = dropdownItem.getAttribute('data-string');
+
+    // get all my events
+    let allEvents = getEventData();
+
+    if (cityName == 'All') {
+        displayStats(allEvents);
+        displayEventData(allEvents);
+        document.getElementById('location').innerText = 'All Events';
+    }
+
+    // filter those events to just selected city
+    let filteredEvents = allEvents.filter(event => event.city.toLowerCase() == cityName.toLowerCase()); 
+
+    // display the stats for those events
+    displayStats(filteredEvents);
+
+    // change the stats header
+    document.getElementById('location').innerText = cityName;
+
+    // display only those events in the table
+    displayEventData(filteredEvents);
 }
