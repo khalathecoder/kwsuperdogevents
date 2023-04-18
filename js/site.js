@@ -66,7 +66,7 @@ var events = [{
 //build dropdown for specific city
 function buildDropDown() {
     let dropdownMenu = document.getElementById('eventDropDown');
-    dropdownMenu.innerHTML = ''; //removes the current city values above
+    dropdownMenu.innerHTML = ''; //clears out the current city values above
 
     let currentEvents = events; //TODO: get these from storage
 
@@ -77,8 +77,8 @@ function buildDropDown() {
     ) //map method requries anon function, gives each item of array one item at a time
     // you can also write it like: let cityNames = currentEvents.map(event => event.city);
 
-    let citiesSet = new Set(cityNames); //Set objects are a collection of values
-    let distinctCities = [...citiesSet]; // converts to array with the []: ['Charlotte', 'San Diego', 'New York'] // ...spread operator
+    let citiesSet = new Set(cityNames); //Set objects are a collection of values to ensure NO DUPLICATES
+    let distinctCities = [...citiesSet]; // converts set to array with the []: ['Charlotte', 'San Diego', 'New York'] // ...spread operator
 
     const dropdownTemplate = document.getElementById('dropdownItemTemplate');
 
@@ -108,6 +108,7 @@ function buildDropDown() {
     }
 
     displayEventData(currentEvents);
+    displayStats(currentEvents);
 }
 
 function displayEventData(currentEvents) {
@@ -131,4 +132,49 @@ function displayEventData(currentEvents) {
         //display results
         eventTable.appendChild(tableRow);
     }
+}
+
+function calculateStats(currentEvents) {
+    let total = 0;
+    let average = 0;
+    let most = 0;
+    let least = currentEvents[0].attendance;
+
+    for(let i = 0; i < currentEvents.length; i++) {
+        let currentAttendance = currentEvents[i].attendance;
+
+        total += currentAttendance; // total = total + currentAttendance;
+
+        if (currentAttendance > most) {
+            most = currentAttendance;
+        }
+
+        if (currentAttendance < least) {
+            least = currentAttendance;
+        }  
+    }
+
+    average = total / currentEvents.length;
+
+
+    // created 1 object stats for the values above to be able to return
+    let stats = { 
+        total: total,
+        average: average,
+        most: most,
+        least: least
+    }
+
+    return stats;
+}
+
+function displayStats(currentEvents) {
+    let statistics = calculateStats(currentEvents); //giving the stats object since that is what it is returning from calculateStats(currentEvents)
+
+    //get the elements where the stats go
+    //set their text to be the correct stat form statistics
+    document.getElementById('total').textContent = statistics.total.toLocaleString();
+    document.getElementById('average').textContent = Math.round(statistics.average).toLocaleString();
+    document.getElementById('most').textContent = statistics.most.toLocaleString();
+    document.getElementById('least').textContent = statistics.least.toLocaleString();
 }
