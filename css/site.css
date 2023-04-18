@@ -96,6 +96,7 @@
     padding-left: .5rem;
   }
 
-  .appLogo {
+  .img-fluid {
     max-width: 400px;
+    border-radius: 30px;
   }
