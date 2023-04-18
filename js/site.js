@@ -68,7 +68,7 @@ function buildDropDown() {
     let dropdownMenu = document.getElementById('eventDropDown');
     dropdownMenu.innerHTML = ''; //clears out the current city values above
 
-    let currentEvents = events; //TODO: get these from storage
+    let currentEvents = getEventData(); 
 
     let cityNames = currentEvents.map(
         function(event) {
@@ -177,4 +177,22 @@ function displayStats(currentEvents) {
     document.getElementById('average').textContent = Math.round(statistics.average).toLocaleString();
     document.getElementById('most').textContent = statistics.most.toLocaleString();
     document.getElementById('least').textContent = statistics.least.toLocaleString();
+}
+
+function getEventData() {
+    let data = localStorage.getItem('kwSuperStarEventData'); //pick a string name unique to you to store in data variable
+
+    if (data == null) {
+        localStorage.setItem('kwSuperStarEventData', JSON.stringify(events))
+    }
+
+    let currentEvents = data == null ? events : JSON.parse(data);
+
+    // AKA if (data == null) {
+    //     currentEvents = events;
+    // } else {
+    //     currentEvents = JSON.parse(data);
+    // }
+
+    return currentEvents;
 }
