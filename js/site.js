@@ -109,6 +109,7 @@ function buildDropDown() {
 
     displayEventData(currentEvents);
     displayStats(currentEvents);
+    document.getElementById('location').innerText = 'All Events';
 }
 
 function displayEventData(currentEvents) {
@@ -126,8 +127,8 @@ function displayEventData(currentEvents) {
         tableRow.querySelector('[data-id="event"]').textContent = event.event;
         tableRow.querySelector('[data-id="city"]').textContent = event.city;
         tableRow.querySelector('[data-id="state"]').textContent = event.state;
-        tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance;
-        tableRow.querySelector('[data-id="date"]').textContent = event.date;
+        tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance.toLocaleString();
+        tableRow.querySelector('[data-id="date"]').textContent = new Date(event.date).toLocaleDateString();
 
         //display results
         eventTable.appendChild(tableRow);
@@ -220,4 +221,38 @@ function viewFilteredEvents(dropdownItem) {
 
     // display only those events in the table
     displayEventData(filteredEvents);
+}
+
+function saveNewEvent() {
+    //get the form input values
+    let name = document.getElementById('newEventName').value;
+    let city = document.getElementById('newCityName').value;
+    let attendance = parseInt(document.getElementById('newEventAttendance').value, 10);
+
+    let dateValue = document.getElementById('newEventDate').value;
+    dateValue = new Date(dateValue);
+
+    let date = dateValue.toLocaleDateString();
+
+    let stateSelect = document.getElementById('newEventState');
+    let selectedIndex = stateSelect.selectedIndex;
+    let state = stateSelect.options[selectedIndex].text;
+
+    // create a new event object
+    let newEvent = {
+        event: name,
+        city: city,
+        state: state,
+        attendance: attendance,
+        date: date,
+    }
+
+    //add it to the array of current events
+    let events = getEventData();
+    events.push(newEvent);
+
+    //the, save the array with the new event
+    localStorage.setItem('kwSuperStarEventData', JSON.stringify(events)); //you can only store a string in local storage, reason for stringify
+
+    buildDropDown();
 }

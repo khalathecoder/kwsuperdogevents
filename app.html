@@ -261,14 +261,14 @@
               <input
                 type="text"
                 class="form-control mb-2"
-                id="eventName"
+                id="newEventName"
                 placeholder="Event"
               />
               <label for="cityName" class="form-label">City</label>
               <input
                 type="text"
                 class="form-control mb-2"
-                id="cityName"
+                id="newCityName"
                 placeholder="City"
               />
               <label for="state" class="form-label">State</label>
@@ -277,6 +277,7 @@
                 id="newEventState"
                 placeholder="Select a State"
               >
+                <option value="">Select a State</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -316,12 +317,14 @@
                 <option value="OK">Oklahoma</option>
                 <option value="OR">Oregon</option>
                 <option value="PA">Pennsylvania</option>
+                <option value="PR">Puerto Rico</option>
                 <option value="RI">Rhode Island</option>
                 <option value="SC">South Carolina</option>
                 <option value="SD">South Dakota</option>
                 <option value="TN">Tennessee</option>
                 <option value="TX">Texas</option>
                 <option value="UT">Utah</option>
+                <option value="VI">Virgin Islands</option>
                 <option value="VT">Vermont</option>
                 <option value="VA">Virginia</option>
                 <option value="WA">Washington</option>
@@ -333,14 +336,14 @@
               <input
                 type="number"
                 class="form-control mb-2"
-                id="attendance"
+                id="newEventAttendance"
                 placeholder="Attendance"
               />
               <label for="eventDate" class="form-label">Event Date</label>
               <input
                 type="date"
                 class="form-control mb-2"
-                id="eventDate"
+                id="newEventDate"
                 placeholder="mm/dd/yyyy"
               />
             </form>
@@ -350,10 +353,9 @@
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
-            >
-              Close
+            >Close
             </button>
-            <button type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="saveNewEvent()">Save</button>
           </div>
         </div>
       </div>
