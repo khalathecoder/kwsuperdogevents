@@ -256,3 +256,4 @@ function saveNewEvent() {
 
     buildDropDown();
 }
+
