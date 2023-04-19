@@ -193,7 +193,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="#">
+          <form id="editEventForm">
+            <input type="hidden" id="editEventId" />
             <label for="editEventName" class="form-label">Event Name</label>
             <input type="text" class="form-control mb-2" id="editEventName" placeholder="Event" />
             <label for="editCityName" class="form-label">City</label>
@@ -265,12 +266,12 @@
           <button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">
             Cancel
           </button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="">
-            <!-- TO DO -->
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deleteEvent()">
+
             Delete Event
           </button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="">
-            <!-- TO DO -->
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="updateEvent()">
+
             Save Changes
           </button>
         </div>

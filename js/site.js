@@ -275,9 +275,10 @@ function editEvent(eventRow) {
     let eventId = eventRow.getAttribute('data-event'); //obtain data-event
 
     let currentEvents = getEventData(); //get current events
-    
+
     let eventToEdit = currentEvents.find(eventObject => eventObject.id == eventId) //found id of the object
 
+    document.getElementById('editEventId').value = eventToEdit.id; //eventToEdit.id aka eventId
     document.getElementById('editEventName').value = eventToEdit.event;
     document.getElementById('editCityName').value = eventToEdit.city;
     document.getElementById('editEventAttendance').value = eventToEdit.attendance;
@@ -288,16 +289,78 @@ function editEvent(eventRow) {
     let formattedDate = dateArray[0];
     document.getElementById('editEventDate').value = formattedDate;
 
+    let editStateSelect = document.getElementById('editEventState');
+    let optionsArray = [...editStateSelect.options];
+    let index = optionsArray.findIndex(option => eventToEdit.state == option.text);
+    editStateSelect.selectedIndex = index; // index of the state for out event
 
-/*     let stateSelect = document.getElementById('newEventState');
+    // forloop indentical to fat arrow above for state
+    // for (let i = 0; i < editStateSelect.options.length; i++) {
+    //     let option = editStateSelect.option[i];
+
+    //     if (eventToEdit.state == option.text) {
+    //         editStateSelect.selectedIndex = i;
+    //     }
+    // }
+
+}
+
+function deleteEvent() {
+    let eventId = document.getElementById('editEventId').value;
+
+    //get the events in the local storage as an array
+    let currentEvents = getEventData();
+
+    //filter out any event(s) with that eventId
+    let filteredEvents = currentEvents.filter(event => event.id !== eventId);
+
+    //save that array to local storage
+    localStorage.setItem('kwSuperStarEventData', JSON.stringify(filteredEvents));
+
+    buildDropDown(); //update the table
+}
+
+function updateEvent() {
+    let eventId = document.getElementById('editEventId').value;
+
+
+    let name = document.getElementById('editEventName').value;
+    let city = document.getElementById('editCityName').value;
+    let attendance = parseInt(document.getElementById('editEventAttendance').value, 10);
+
+    let dateValue = document.getElementById('editEventDate').value;
+    dateValue = new Date(dateValue);
+
+    let date = dateValue.toLocaleDateString();
+
+    let stateSelect = document.getElementById('editEventState');
     let selectedIndex = stateSelect.selectedIndex;
     let state = stateSelect.options[selectedIndex].text;
-*/
-    let editStateSelect = document.getElementById('editEventState');
 
-    let optionsArray = [...editStateSelect.options];
+    // create a new event object
+    let newEvent = {
+        event: name,
+        city: city,
+        state: state,
+        attendance: attendance,
+        date: date,
+        id: eventId
+    }
 
-    let index = optionsArray.findIndex(option => eventToEdit.state == option.text);
-    editStateSelect.selectedIndex = index; // indez of the state for out event
-    
+    // get my events array
+    let currentEvents = getEventData();
+
+    // find the location of the Old event with this id
+    for (let i = 0; i < currentEvents.length; i++) {
+        if (currentEvents[i].id == eventId) {
+            //replace that event with newEvent
+            currentEvents[i] = newEvent;
+            break; //stops looping
+        }
+    }
+
+    //save that array to local storage
+    localStorage.setItem('kwSuperStarEventData', JSON.stringify(currentEvents));
+
+    buildDropDown(); //update the table
 }
