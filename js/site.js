@@ -68,10 +68,10 @@ function buildDropDown() {
     let dropdownMenu = document.getElementById('eventDropDown');
     dropdownMenu.innerHTML = ''; //clears out the current city values above
 
-    let currentEvents = getEventData(); 
+    let currentEvents = getEventData();
 
     let cityNames = currentEvents.map(
-        function(event) {
+        function (event) {
             return event.city;
         }
     ) //map method requries anon function, gives each item of array one item at a time
@@ -93,16 +93,16 @@ function buildDropDown() {
     //add out copy to the page
     dropdownMenu.appendChild(dropdownItemNode);
 
-    for(let i = 0; i < distinctCities.length; i += 1) {
+    for (let i = 0; i < distinctCities.length; i += 1) {
         //get the city name
         let cityName = distinctCities[i];
 
-            //generate a dropdown element
-            let dropdownItemNode = document.importNode(dropdownTemplate.content, true);
-            let dropdownItemLink = dropdownItemNode.querySelector('a');
-            dropdownItemLink.innerText = cityName;
-            dropdownItemLink.setAttribute('data-string', cityName);
-            
+        //generate a dropdown element
+        let dropdownItemNode = document.importNode(dropdownTemplate.content, true);
+        let dropdownItemLink = dropdownItemNode.querySelector('a');
+        dropdownItemLink.innerText = cityName;
+        dropdownItemLink.setAttribute('data-string', cityName);
+
         //append to dropdown menu
         dropdownMenu.appendChild(dropdownItemNode);
     }
@@ -113,7 +113,7 @@ function buildDropDown() {
 }
 
 function displayEventData(currentEvents) {
-       // get the table
+    // get the table
     const eventTable = document.getElementById('eventTable');
     const template = document.getElementById('tableRowTemplate');
 
@@ -130,6 +130,8 @@ function displayEventData(currentEvents) {
         tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance.toLocaleString();
         tableRow.querySelector('[data-id="date"]').textContent = new Date(event.date).toLocaleDateString();
 
+        tableRow.querySelector('tr').setAttribute('data-event', event.id);
+
         //display results
         eventTable.appendChild(tableRow);
     }
@@ -141,7 +143,7 @@ function calculateStats(currentEvents) {
     let most = 0;
     let least = currentEvents[0].attendance;
 
-    for(let i = 0; i < currentEvents.length; i++) {
+    for (let i = 0; i < currentEvents.length; i++) {
         let currentAttendance = currentEvents[i].attendance;
 
         total += currentAttendance; // total = total + currentAttendance;
@@ -152,14 +154,14 @@ function calculateStats(currentEvents) {
 
         if (currentAttendance < least) {
             least = currentAttendance;
-        }  
+        }
     }
 
     average = total / currentEvents.length;
 
 
     // created 1 object stats for the values above to be able to return
-    let stats = { 
+    let stats = {
         total: total,
         average: average,
         most: most,
@@ -184,16 +186,22 @@ function getEventData() {
     let data = localStorage.getItem('kwSuperStarEventData'); //pick a string name unique to you to store in data variable
 
     if (data == null) {
-        localStorage.setItem('kwSuperStarEventData', JSON.stringify(events))
+        let identifiedEvents = events.map((event) => { //if null, generate ids and return event with id to store in local storage
+            event.id = generateId();
+            return event;
+        });
+
+        localStorage.setItem('kwSuperStarEventData', JSON.stringify(identifiedEvents)); //save data in local storage
+        data = localStorage.getItem('kwSuperStarEventData');
     }
 
-    let currentEvents = data == null ? events : JSON.parse(data);
+    let currentEvents = JSON.parse(data); //if data is not null, take what is saved and parse the data
 
-    // AKA if (data == null) {
-    //     currentEvents = events;
-    // } else {
-    //     currentEvents = JSON.parse(data);
-    // }
+    if (currentEvents.some(event => event.id == undefined)) { //if any events do not have id give them all an id and save to db
+        currentEvents.forEach(event => event.id = generateId());
+
+        localStorage.setItem('kwSuperStarEventData', JSON.stringify(currentEvents)); //save in local storage
+    }
 
     return currentEvents;
 }
@@ -211,7 +219,7 @@ function viewFilteredEvents(dropdownItem) {
     }
 
     // filter those events to just selected city
-    let filteredEvents = allEvents.filter(event => event.city.toLowerCase() == cityName.toLowerCase()); 
+    let filteredEvents = allEvents.filter(event => event.city.toLowerCase() == cityName.toLowerCase());
 
     // display the stats for those events
     displayStats(filteredEvents);
@@ -257,3 +265,39 @@ function saveNewEvent() {
     buildDropDown();
 }
 
+function generateId() {
+    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+}
+
+function editEvent(eventRow) {
+    let eventId = eventRow.getAttribute('data-event'); //obtain data-event
+
+    let currentEvents = getEventData(); //get current events
+    
+    let eventToEdit = currentEvents.find(eventObject => eventObject.id == eventId) //found id of the object
+
+    document.getElementById('editEventName').value = eventToEdit.event;
+    document.getElementById('editCityName').value = eventToEdit.city;
+    document.getElementById('editEventAttendance').value = eventToEdit.attendance;
+
+    let eventDate = new Date(eventToEdit.date);
+    let eventDateString = eventDate.toISOString();
+    let dateArray = eventDateString.split('T');
+    let formattedDate = dateArray[0];
+    document.getElementById('editEventDate').value = formattedDate;
+
+
+/*     let stateSelect = document.getElementById('newEventState');
+    let selectedIndex = stateSelect.selectedIndex;
+    let state = stateSelect.options[selectedIndex].text;
+*/
+    let editStateSelect = document.getElementById('editEventState');
+
+    let optionsArray = [...editStateSelect.options];
+
+    let index = optionsArray.findIndex(option => eventToEdit.state == option.text);
+    editStateSelect.selectedIndex = index; // indez of the state for out event
+    
+}

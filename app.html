@@ -1,532 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>SUPER STAR: A Coding Challenge by Khala Wright</title>
 
-    <!-- Bootstrap CSS - stylesheets always go in head tag-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>SUPER STAR: A Coding Challenge by Khala Wright</title>
 
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Bootstrap CSS - stylesheets always go in head tag-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
 
-    <!-- DEVICON -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
-    />
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
 
-    <!-- BOOTSTRAP icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
-    />
+  <!-- DEVICON -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/site.css" />
-  </head>
+  <!-- BOOTSTRAP icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
 
-  <body onload="buildDropDown()">
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
-        <div class="container">
-          <a class="navbar-brand" href="/index.html">
-            <img src="/img/kw-mark.png" height="30" />
-            SUPER STAR
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="/index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/app.html"
-                  >The App</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/code.html">The Code</a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://github.com/khalathecoder/kwsuperstarevents"
-                  target="_blank"
-                  >The Repo</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://khalawright-portfolio.netlify.app"
-                  target="_blank"
-                  >Portfolio</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-                <!--!!!!!!!!!! To do, change link!!!!!!!! -->
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/site.css" />
+</head>
 
-    <main class="container mt-3">
-      <div class="row">
-        <div class="col-sm-6">
-          <!-- dropdown button -->
-          <div class="dropdown my-3">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Pick a Location
-            </button>
-            <ul
-              class="dropdown-menu"
-              id="eventDropDown"
-              aria-labelledby="dropdownMenuButton1"
-            >
-              <!-- event cities go here -->
-            </ul>
-          </div>
-          <!-- stat box -->
-          <table class="table table-striped border rounded-2 shadow">
-            <thead class="table-dark">
-              <tr>
-                <th colspan="2">
-                  Stats For <span id="location"> All Events</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Total Attendance</td>
-                <td id="total">100</td>
-              </tr>
-              <tr>
-                <td>Average Attendance</td>
-                <td id="average">100</td>
-              </tr>
-              <tr>
-                <td>Most Attendance</td>
-                <td id="most">100</td>
-              </tr>
-              <tr>
-                <td>Least Attendance</td>
-                <td id="least">100</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-sm-6 order-first order-sm-last">
-          <!-- logo -->
-          <img
-            src="/img/kwsuperstarevents (400 × 400 px).png"
-            class="img-fluid p-3"
-          />
-        </div>
-      </div>
-      <div>
-        <!-- button to add events -->
-        <button
-          class="btn btn-secondary my-3"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
-          Add Data
-        </button>
-        <!-- event table -->
-        <div class="table-responsive mb-3">
-          <table class="table table-striped border rounded-2 shadow table-hover">
-            <thead class="table-dark">
-              <tr>
-                <th>Event Name</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Attendance</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody id="eventTable">
-              <!-- event data -->
-              <tr>
-                <td>ComicCon</td>
-                <td>New York</td>
-                <td>New York</td>
-                <td>25000</td>
-                <td>10/21/2022</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </main>
-
-    <footer class="py-3">
+<body onload="buildDropDown()">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
       <div class="container">
-        <div
-          class="row row-cols-1 row-cols-md-3 align-items-center text-center"
-        >
-          <div class="col">
-            <img src="/img/kw-white-initials.png" height="50" />
-          </div>
-          <div class="col text-light text-md-end">
-            <a href="https://linkedin.com" class="text-light" target="blank"
-              ><i class="socialicons bi bi-linkedin p-2"></i
-            ></a>
-            <a href="https://github.com" class="text-light" target="blank"
-              ><i class="socialicons bi bi-github p-2"></i
-            ></a>
-            <a href="https://twitter.com" class="text-light" target="blank"
-              ><i class="socialicons bi bi-twitter p-2"></i
-            ></a>
-          </div>
-          <div class="col text-light order-md-first text-md-start">
-            &copy; 2023 Khala Wright
-          </div>
+        <a class="navbar-brand" href="/index.html">
+          <img src="/img/kw-mark.png" height="30" />
+          SUPER STAR
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/app.html">The App</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/code.html">The Code</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/khalathecoder/kwsuperstarevents" target="_blank">The Repo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://khalawright-portfolio.netlify.app" target="_blank">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+              <!--!!!!!!!!!! To do, change link!!!!!!!! -->
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
+    </nav>
+  </header>
 
-    <!-- templates -->
-    <template id="dropdownItemTemplate">
-      <li>
-        <a
-          class="dropdown-item"
-          href="#"
-          onclick="viewFilteredEvents(this)"
-        ></a>
-      </li>
-    </template>
+  <main class="container mt-3">
+    <div class="row">
+      <div class="col-sm-6">
+        <!-- dropdown button -->
+        <div class="dropdown my-3">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Pick a Location
+          </button>
+          <ul class="dropdown-menu" id="eventDropDown" aria-labelledby="dropdownMenuButton1">
+            <!-- event cities go here -->
+          </ul>
+        </div>
+        <!-- stat box -->
+        <table class="table table-striped border rounded-2 shadow">
+          <thead class="table-dark">
+            <tr>
+              <th colspan="2">
+                Stats For <span id="location"> All Events</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total Attendance</td>
+              <td id="total">100</td>
+            </tr>
+            <tr>
+              <td>Average Attendance</td>
+              <td id="average">100</td>
+            </tr>
+            <tr>
+              <td>Most Attendance</td>
+              <td id="most">100</td>
+            </tr>
+            <tr>
+              <td>Least Attendance</td>
+              <td id="least">100</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-6 order-first order-sm-last">
+        <!-- logo -->
+        <img src="/img/kwsuperstarevents (400 × 400 px).png" class="img-fluid p-3" />
+      </div>
+    </div>
+    <div>
+      <!-- button to add events -->
+      <button class="btn btn-secondary my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add Data
+      </button>
+      <!-- event table -->
+      <div class="table-responsive mb-3">
+        <table class="table table-striped border rounded-2 shadow table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>Event Name</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Attendance</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="eventTable">
+            <!-- event data -->
+            <tr>
+              <td>ComicCon</td>
+              <td>New York</td>
+              <td>New York</td>
+              <td>25000</td>
+              <td>10/21/2022</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
 
-    <template id="tableRowTemplate">
-      <tr data-bs-toggle="modal"
-      data-bs-target="#editEventModal" role="button">
-        <td data-id="event"></td>
-        <td data-id="city"></td>
-        <td data-id="state"></td>
-        <td data-id="attendance"></td>
-        <td data-id="date"></td>
-      </tr>
-    </template>
-
-    <!-- EDIT AND DELETE Modal -->
-    <div
-      class="modal fade"
-      id="editEventModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-3" id="exampleModalLabel">Edit Event</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form action="#">
-              <label for="editEventName" class="form-label">Event Name</label>
-              <input
-                type="text"
-                class="form-control mb-2"
-                id="editEventName"
-                placeholder="Event"
-              />
-              <label for="editCityName" class="form-label">City</label>
-              <input
-                type="text"
-                class="form-control mb-2"
-                id="editCityName"
-                placeholder="City"
-              />
-              <label for="editState" class="form-label">State</label>
-              <select
-                class="form-control"
-                id="editEventState"
-                placeholder="Select a State"
-              >
-                <option value="">Select a State</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="PR">Puerto Rico</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VI">Virgin Islands</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-              </select>
-              <label for="editAttendance" class="form-label">Attendance</label>
-              <input
-                type="number"
-                class="form-control mb-2"
-                id="editEventAttendance"
-                placeholder="Attendance"
-              />
-              <label for="editEventDate" class="form-label">Event Date</label>
-              <input
-                type="date"
-                class="form-control mb-2"
-                id="editEventDate"
-                placeholder="mm/dd/yyyy"
-              />
-            </form>
-          </div>
-          <div class="modal-footer d-flex">
-            <button
-              type="button"
-              class="btn btn-secondary me-auto"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              class="btn btn-danger"
-              data-bs-dismiss="modal"
-              onclick=""><!-- TO DO -->
-              Delete Event
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-              onclick=""><!-- TO DO -->
-              Save Changes
-            </button>
-          </div>
+  <footer class="py-3">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3 align-items-center text-center">
+        <div class="col">
+          <img src="/img/kw-white-initials.png" height="50" />
+        </div>
+        <div class="col text-light text-md-end">
+          <a href="https://linkedin.com" class="text-light" target="blank"><i
+              class="socialicons bi bi-linkedin p-2"></i></a>
+          <a href="https://github.com" class="text-light" target="blank"><i
+              class="socialicons bi bi-github p-2"></i></a>
+          <a href="https://twitter.com" class="text-light" target="blank"><i
+              class="socialicons bi bi-twitter p-2"></i></a>
+        </div>
+        <div class="col text-light order-md-first text-md-start">
+          &copy; 2023 Khala Wright
         </div>
       </div>
     </div>
+  </footer>
 
-    <!-- NEW EVENT Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-3" id="exampleModalLabel">
-              Add a New Event
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form action="#">
-              <label for="eventName" class="form-label">Event Name</label>
-              <input
-                type="text"
-                class="form-control mb-2"
-                id="newEventName"
-                placeholder="Event"
-              />
-              <label for="cityName" class="form-label">City</label>
-              <input
-                type="text"
-                class="form-control mb-2"
-                id="newCityName"
-                placeholder="City"
-              />
-              <label for="state" class="form-label">State</label>
-              <select
-                class="form-control"
-                id="newEventState"
-                placeholder="Select a State"
-              >
-                <option value="">Select a State</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="PR">Puerto Rico</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VI">Virgin Islands</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-              </select>
-              <label for="attendance" class="form-label">Attendance</label>
-              <input
-                type="number"
-                class="form-control mb-2"
-                id="newEventAttendance"
-                placeholder="Attendance"
-              />
-              <label for="eventDate" class="form-label">Event Date</label>
-              <input
-                type="date"
-                class="form-control mb-2"
-                id="newEventDate"
-                placeholder="mm/dd/yyyy"
-              />
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-              onclick="saveNewEvent()"
-            >
-              Save
-            </button>
-          </div>
+  <!-- templates -->
+  <template id="dropdownItemTemplate">
+    <li>
+      <a class="dropdown-item" href="#" onclick="viewFilteredEvents(this)"></a>
+    </li>
+  </template>
+
+  <template id="tableRowTemplate">
+    <tr data-bs-toggle="modal" data-bs-target="#editEventModal" role="button" onclick="editEvent(this)">
+      <td data-id="event"></td>
+      <td data-id="city"></td>
+      <td data-id="state"></td>
+      <td data-id="attendance"></td>
+      <td data-id="date"></td>
+    </tr>
+  </template>
+
+  <!-- EDIT AND DELETE Modal -->
+  <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-3" id="exampleModalLabel">Edit Event</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="#">
+            <label for="editEventName" class="form-label">Event Name</label>
+            <input type="text" class="form-control mb-2" id="editEventName" placeholder="Event" />
+            <label for="editCityName" class="form-label">City</label>
+            <input type="text" class="form-control mb-2" id="editCityName" placeholder="City" />
+            <label for="editState" class="form-label">State</label>
+            <select class="form-control" id="editEventState" placeholder="Select a State">
+              <option value="">Select a State</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District Of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="PR">Puerto Rico</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VI">Virgin Islands</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+            <label for="editAttendance" class="form-label">Attendance</label>
+            <input type="number" class="form-control mb-2" id="editEventAttendance" placeholder="Attendance" />
+            <label for="editEventDate" class="form-label">Event Date</label>
+            <input type="date" class="form-control mb-2" id="editEventDate" placeholder="mm/dd/yyyy" />
+          </form>
+        </div>
+        <div class="modal-footer d-flex">
+          <button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="">
+            <!-- TO DO -->
+            Delete Event
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="">
+            <!-- TO DO -->
+            Save Changes
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-      crossorigin="anonymous"
-    ></script>
+  <!-- NEW EVENT Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-3" id="exampleModalLabel">
+            Add a New Event
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="#">
+            <label for="eventName" class="form-label">Event Name</label>
+            <input type="text" class="form-control mb-2" id="newEventName" placeholder="Event" />
+            <label for="cityName" class="form-label">City</label>
+            <input type="text" class="form-control mb-2" id="newCityName" placeholder="City" />
+            <label for="state" class="form-label">State</label>
+            <select class="form-control" id="newEventState" placeholder="Select a State">
+              <option value="">Select a State</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District Of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="PR">Puerto Rico</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VI">Virgin Islands</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+            <label for="attendance" class="form-label">Attendance</label>
+            <input type="number" class="form-control mb-2" id="newEventAttendance" placeholder="Attendance" />
+            <label for="eventDate" class="form-label">Event Date</label>
+            <input type="date" class="form-control mb-2" id="newEventDate" placeholder="mm/dd/yyyy" />
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="saveNewEvent()">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Sweet Alerts -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+    crossorigin="anonymous"></script>
 
-    <!-- APP JS -->
-    <script src="/js/site.js"></script>
-  </body>
+  <!-- Sweet Alerts -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  <!-- APP JS -->
+  <script src="/js/site.js"></script>
+</body>
+
 </html>
