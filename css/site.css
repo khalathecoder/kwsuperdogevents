@@ -6,7 +6,7 @@
     --kw-body-font: "Roboto", sans-serif;
   
     /* colors */
-    --kw-primary-color: #0b2057;
+    --kw-primary-color: #4b4b4b;
     --kw-secondary-color: #FAC539;
     --kw-highlight-color: #2DE2FA;
     --kw-dark-color: #212121;
@@ -99,3 +99,13 @@
   .img-fluid {
     border-radius: 30px;
   }
+
+  .bgImage{
+    width: 100%;
+    background: linear-gradient(rgba(202, 200, 200, 0.7), rgba(180, 174, 174, 0.7)), url(/img/superstarbg.jpg);
+        /* rgba is transparency as opposed to rgb which is color*/
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed
+}

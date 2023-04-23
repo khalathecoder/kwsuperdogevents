@@ -43,13 +43,12 @@
     <link rel="stylesheet" href="/css/prism.css" />
   </head>
 
-  <body>
+  <body class="bgImage">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
         <div class="container">
           <a class="navbar-brand" href="/index.html">
-            <img src="/img/kw-mark.png" height="30" />
-            SUPER STAR
+            <img src="/img/superstarevents-headerimg.png" height="70"/>
           </a>
           <button
             class="navbar-toggler"
@@ -368,24 +367,93 @@ function saveNewEvent() {
                     </code>
                 </pre>
         </div>
-        <div class="col-lg-4 col-12">
-          <h5>Explanation:</h5>
-          <p>
-            <i class="bi bi-journal-check"></i> The var events is the array that
-            was provided in advance by the Super Star Events company.
-          </p>
-          <p>
-            <i class="bi bi-journal-check"></i> As expected, with a more
-            elaborate task requested by Super Star Events, there are several
-            functions that are broken down below. First, I addressed the "Pick a
-            Location" dropdown identified as function buildDropDown to
-            incorporate the specific cities that are added to the event table in
-            the table. dropdownMenu.innerHTML = '' empties the string of current
-            city values. (The assignment of variable of currentEvents = getEventData will be explained in later steps.) 
-          </p>
-          <p>
-            <i class="bi bi-journal-check"></i>
-          </p>
+          <div class="col-lg-4 col-12 mt-2">
+            <p><h5>Explanation:</h5></p>
+            <hr>
+            <h5>buildDropDown():</h5>
+            <p>
+              This function generates a dropdown menu on the webpage based on the
+              unique cities present in the data, and sets it as the event filter.
+              It also displays statistics and event data based on the filtered
+              data, and sets the location display accordingly.
+            </p>
+            
+            <h5>displayEventData():</h5>
+            <p>
+              This function is called by buildDropDown() and displays event data
+              in a table based on the current events.
+            </p>
+            
+            <h5>calculateStats():</h5>
+            <p>
+              This function calculates and returns statistics such as the total
+              attendance, average attendance, highest and lowest attendance based
+              on the current events.
+            </p>
+            
+            <h5>displayStats():</h5>
+            <p>
+              This function is called by buildDropDown() and displays statistics
+              based on the current events.
+            </p>
+            
+            <h5>getEventData():</h5>
+            <p>
+              This function retrieves the event data from local storage, and
+              generates unique IDs for the events if not present. It returns the
+              current event data.
+            </p>
+            
+            <h5>viewFilteredEvents():</h5>
+            <p>
+              This function is called when a dropdown item is selected and filters
+              the event data based on the selected city. It displays statistics
+              and event data based on the filtered data, and sets the location
+              display accordingly.
+            </p>
+            
+            <h5>saveNewEvent():</h5>
+            <p>
+              This function saves a new event with the event name, city, state,
+              attendance, and date that are obtained from form inputs.
+            </p>
+            
+            <h5>generateId():</h5>
+            <p>
+              This function generates a random alphanumeric ID using the
+              crypto.getRandomValues() method and bitwise operations. The
+              generated ID is returned as a string.
+            </p>
+            
+            <h5>editEvent():</h5>
+            <p>
+              This function populates a form with the details of a selected event
+              for editing. It takes an event row element as an argument and
+              retrieves the event ID from its data-event attribute. It then uses
+              the ID to find the corresponding event object from an array of
+              events, and populates the form fields with the event details.
+            </p>
+            
+            <h5>deleteEvent():</h5>
+            <p>
+              This function deletes an event from an array of events and updates
+              the list of events in local storage. It retrieves the ID of the
+              event to be deleted from a form field, filters out the event from
+              the array, and saves the updated array to local storage. It then
+              rebuilds the drop-down list of events.
+            </p>
+            
+            <h5>updateEvent():</h5>
+            <p>
+              This function updates the details of an existing event and saves the
+              updated event to local storage. It retrieves the ID of the event to
+              be updated from a form field, and retrieves the updated details from
+              the form fields. It then creates a new event object with the updated
+              details and replaces the existing event object in the array of
+              events. The updated array of events is then saved to local storage,
+              and the drop-down list of events is rebuilt.
+            </p>
+            
         </div>
       </div>
     </main>
